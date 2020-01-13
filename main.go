@@ -8,7 +8,7 @@ import (
 
 func main() {
   if len(os.Args) != 2 { fatal("not enough args.") } 
-  readBinaryFile(os.Args[1])
+  readClassFile(os.Args[1])
 }
 
 func fatal(s string) {
@@ -37,7 +37,7 @@ const (
 
 var utf8Tbl map[int]string = map[int]string{}
 
-func readBinaryFile(filename string) {
+func readClassFile(filename string) {
   file, err := os.Open(filename)
   if err != nil { fatal(err.Error()) }
   defer file.Close()
