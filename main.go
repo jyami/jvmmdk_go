@@ -179,17 +179,18 @@ func printCodeAttribute(file *os.File) {
   fmt.Printf("codeLength: %d, ", codeLength)
 
   b := readBytes(file, codeLength)
-  fmt.Printf("op: ")
+  fmt.Printf("\n")
+  fmt.Printf("op: \n")
   for idx := 0; idx < codeLength; idx++ {
     opCode := b[idx] 
     op := opTbl[opCode]
-    fmt.Printf("< ")
+    fmt.Printf("  < ")
     fmt.Printf("%s[%#04x] ", op.name, opCode)
     for argc := 0; argc < op.argc; argc++ {
       idx = idx + 1 
       fmt.Printf("%#04x ", b[idx])
     }
-    fmt.Printf("> ")
+    fmt.Printf("> \n")
   }
   fmt.Printf(", ")
   
